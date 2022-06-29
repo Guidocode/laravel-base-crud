@@ -14,6 +14,11 @@ class ComicTableSeeder extends Seeder
     {
         $comics = config('comics');
 
-        dump($comics);
+        // dump($comics);
+
+        foreach ($comics as $comic) {
+
+            $comic->title =
+        }
     }
 }
