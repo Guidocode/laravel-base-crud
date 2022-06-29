@@ -1,0 +1,11 @@
+.gb-container{
+  width: 80%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.clearfix::after{
+  display: table;
+  content: '';
+  clear: both;
+}

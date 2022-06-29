@@ -1,0 +1,35 @@
+header{
+    height: 100px;
+    line-height: 94px;
+
+    .logo{
+      float: left;
+      width: 70px;
+      height: 70px;
+      img{
+        width: 100%;
+      }
+    }
+
+    nav{
+      float: right;
+
+      li{
+        padding: 0 15px;
+      }
+
+      a{
+        display: inline-block;
+        color: black;
+        font-size: .6rem;
+        font-weight: 600;
+        @include linkStyle();
+        &:hover,
+        &.active{
+          border-bottom: 4px solid $primary-color;
+          color: $primary-color;
+        }
+
+      }
+    }
+  }
