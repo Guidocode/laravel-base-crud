@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Comic;
 use Facade\Ignition\DumpRecorder\Dump;
 
@@ -39,7 +40,18 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // quando creo un fumetto dal form e lo invio arriva qui
+        // dd($request->all());
+
+        $data = $request->all();
+        $new_comic = new Comic();
+
+        $data['slug'] = $this->createSlug($data['title']);
+        $new_comic->fill($data);
+
+        $new_comic->save();
+
+        return redirect()->route('comics.show', $new_comic);
     }
 
     /**
@@ -90,5 +102,19 @@ class ComicController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function createSlug($string){
+        $slug = Str::slug($string, '-');
+        $control_slug = Comic::where('slug', $slug)->first();
+
+        $i = 0;
+        while ($control_slug){
+            $slug = Str::slug($string, '-') . '-' . $i;
+            $i++;
+            $control_slug = Comic::where('slug', $slug)->first();
+        }
+
+        return $slug;
     }
 }

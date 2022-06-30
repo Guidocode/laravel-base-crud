@@ -10218,6 +10218,10 @@ ul {
   list-style: none;
 }
 
+body {
+  font-size: 0.9rem;
+}
+
 .gb-container {
   width: 80%;
   max-width: 1600px;
