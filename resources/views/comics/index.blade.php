@@ -28,11 +28,16 @@
                         <td>{{$comic->slug}}</td>
                         <td>{{$comic->image}}</td>
                         <td>{{$comic->type}}</td>
-                        <td>
+                        <td class="d-flex">
                             <a class="btn btn-success" href="{{ route('comics.show', $comic) }}">SHOW</a>
-                        </td>
-                        <td>
                             <a class="btn btn-primary" href="{{ route('comics.edit', $comic) }}">EDIT</a>
+                            <form class="d-inline"
+                                onsubmit="return confirm('confermi l\'eliminazione di: {{ $comic->title }}?')"
+                                action="{{ route('comics.destroy', $comic) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" >DELETE</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

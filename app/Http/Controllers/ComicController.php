@@ -117,9 +117,13 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        // cancello il record che voglio
+        $comic->delete();
+
+        return redirect()->route('comics.index');
+
     }
 
     private function createSlug($string){
