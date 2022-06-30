@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="gb-container">
+    <div class="container">
         {{-- Comics --}}
         <!-- Titolo contenitore -->
         <div class="title-content">Comics</div>
@@ -30,6 +30,9 @@
                         <td>{{$comic->type}}</td>
                         <td>
                             <a class="btn btn-success" href="{{ route('comics.show', $comic) }}">SHOW</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="{{ route('comics.edit', $comic) }}">EDIT</a>
                         </td>
                     </tr>
                 @endforeach

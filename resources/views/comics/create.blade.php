@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="gb-container">
+    <div class="container">
 
         <div class="row">
             <div class="col-8 offset-2">

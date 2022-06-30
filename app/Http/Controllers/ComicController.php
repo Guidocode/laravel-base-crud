@@ -78,7 +78,12 @@ class ComicController extends Controller
      */
     public function edit($id)
     {
-        //
+        // modifico il record passato con id
+        $comic = Comic::find($id);
+        if($comic){
+            return view('comics.edit', compact('comic'));
+        }
+        abort(404, 'Fumetto non presente nel database');
     }
 
     /**
@@ -90,7 +95,20 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // salvo la modifica
+        $comic = Comic::find($id);
+
+        $data = $request->all();
+
+        if($comic->title != $data['title']){
+            $data['slug'] = $this->createSlug($data['title']);
+        }else{
+            $data['slug'] = $comic->slug;
+        }
+
+        $comic->update($data);
+
+        return redirect()->route('comics.show', $comic);
     }
 
     /**
