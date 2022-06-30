@@ -2,6 +2,7 @@
 
 use App\Comic;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ComicTableSeeder extends Seeder
 {
@@ -18,7 +19,14 @@ class ComicTableSeeder extends Seeder
 
         foreach ($comics as $comic) {
 
-            $comic->title =
+            $new_comic = new Comic();
+
+            $new_comic->title = $comic->title;
+            $new_comic->slug = Str::slug($comic->title, '-');
+            $new_comic->image = $comic->image;
+            $new_comic->type = $comic->type;
+            $new_comic->save();
+            // dump($comics);
         }
     }
 }

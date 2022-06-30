@@ -10246,7 +10246,7 @@ header nav {
   float: right;
 }
 header nav li {
-  padding: 0 15px;
+  padding: 0 20px;
 }
 header nav a {
   display: inline-block;
@@ -10264,7 +10264,7 @@ header nav a:hover, header nav a.active {
 main {
   padding: 40px 0;
   color: white;
-  background-color: #1C1C1C;
+  background-color: rgba(41, 41, 44, 0.2274509804);
 }
 main .title-content {
   display: inline-block;

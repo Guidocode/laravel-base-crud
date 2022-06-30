@@ -15,7 +15,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
+        $comics = Comic::orderBy('id','desc')->get();
 
         return view('comics.index', compact('comics'));
     }
@@ -27,7 +27,8 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        // view create.blade.php
+        return view('comics.create');
     }
 
     /**
@@ -49,7 +50,12 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        //
+        $comic = Comic::find($id);
+
+        if($comic){
+            return view('comics.show', compact('comic'));
+        }
+        abort(404, 'Fumetto non presente nel database');
     }
 
     /**

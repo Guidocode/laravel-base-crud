@@ -2,31 +2,41 @@
 
 @section('content')
 
-
-    {{-- Comics --}}
-    <!-- Titolo contenitore -->
     <div class="gb-container">
-    <div class="title-content">current series</div>
+        {{-- Comics --}}
+        <!-- Titolo contenitore -->
+        <div class="title-content">Comics</div>
+        <!-- /Titolo contenitore -->
+
+
+        <table class="table bg-light">
+            <thead>
+            <tr>
+                <th scope="col">#id</th>
+                <th scope="col">title</th>
+                <th scope="col">slug</th>
+                <th scope="col">image</th>
+                <th scope="col">type</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach ($comics as $comic )
+                    <tr>
+                        <th scope="row">{{$comic->id}}</th>
+                        <td>{{$comic->title}}</td>
+                        <td>{{$comic->slug}}</td>
+                        <td>{{$comic->image}}</td>
+                        <td>{{$comic->type}}</td>
+                        <td>
+                            <a class="btn btn-success" href="{{ route('comics.show', $comic) }}">SHOW</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-    <!-- /Titolo contenitore -->
 
-
-    {{-- <div class="gb-container container-cards d-flex flex-wrap">
-        @foreach ($comics as $comic)
-        <div class="gb-card">
-            <div class="image-card">
-            <img src="{{$comic->image}}" alt="{{$comic->title}}">
-            </div>
-            <div class="title-card">{{$comic->title}}</div>
-        </div>
-        @endforeach
-    </div>
-
-
-    <div class="gb-container  text-center mb-5">
-        <button type="button" class="btn btn-primary gb-btn">Load More</button>
-    </div> --}}
-    {{-- /Comics --}}
 
 
 @endsection
