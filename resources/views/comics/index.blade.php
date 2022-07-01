@@ -29,9 +29,9 @@
                         <td>{{$comic->image}}</td>
                         <td>{{$comic->type}}</td>
                         <td class="d-flex">
-                            <a class="btn btn-success" href="{{ route('comics.show', $comic) }}">SHOW</a>
-                            <a class="btn btn-primary" href="{{ route('comics.edit', $comic) }}">EDIT</a>
-                            <form class="d-inline"
+                            <a class="btn btn-success mx-1" href="{{ route('comics.show', $comic) }}">SHOW</a>
+                            <a class="btn btn-primary mx-1" href="{{ route('comics.edit', $comic) }}">EDIT</a>
+                            <form class="d-inline mx-1"
                                 onsubmit="return confirm('confermi l\'eliminazione di: {{ $comic->title }}?')"
                                 action="{{ route('comics.destroy', $comic) }}" method="POST">
                                 @csrf
