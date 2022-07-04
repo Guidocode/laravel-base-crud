@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ComicRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Comic;
@@ -38,10 +39,13 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ComicRequest $request)
     {
         // quando creo un fumetto dal form e lo invio arriva qui
         // dd($request->all());
+
+        //validazione dati
+
 
         $data = $request->all();
         $new_comic = new Comic();
