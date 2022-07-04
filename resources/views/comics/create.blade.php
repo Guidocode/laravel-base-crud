@@ -21,6 +21,15 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        <label for="image" class="form-label">URL immagine</label>
+                        <input type="text" id="image" name="image" placeholder="URL immagine fumetto"
+                        value="{{ old('image') }}"
+                        class="form-control @error('image') is-invalid @enderror">
+                        @error('image')
+                            <p class="invalid-feedback">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
                         <label for="type" class="form-label">Tipo</label>
                         <input type="text" id="type" name="type" placeholder="Tipo"
                         value="{{ old('type') }}"
@@ -29,15 +38,7 @@
                             <p class="invalid-feedback">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="mb-3">
-                        <label for="image" class="form-label">URL immagine fumetto</label>
-                        <input type="text" id="image" name="image" placeholder="URL immagine fumetto"
-                        value="{{ old('image') }}"
-                        class="form-control @error('image') is-invalid @enderror">
-                        @error('image')
-                            <p class="invalid-feedback">{{ $message }}</p>
-                        @enderror
-                    </div>
+
 
                     <button type="submit" class="btn btn-primary">Invia</button>
                 </form>

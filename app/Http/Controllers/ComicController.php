@@ -44,7 +44,7 @@ class ComicController extends Controller
         // quando creo un fumetto dal form e lo invio arriva qui
         // dd($request->all());
 
-        //validazione dati
+        //validazione dati in ComicRequest
 
 
         $data = $request->all();
@@ -97,7 +97,7 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ComicRequest $request, $id)
     {
         // salvo la modifica
         $comic = Comic::find($id);
